@@ -1,0 +1,118 @@
+﻿
+@model IEnumerable<Projeto.CopaMundo.Filmes.MVC.ViewModels.FilmeViewModels>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <!-- HTML5 -->
+    <meta charset="UTF-8">
+
+    <title>Copa do mundo de Filmes</title>
+</head>
+
+<body>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h3 class="display-3 text-center">CAMPEONATO DE FILMES</h3>
+                <h3 class="text-center"><b>Fase de Seleção</b></h3>
+                <h5 class="text-center">Selecione 32 filmes que você deseja que entrem na competição e depois pressione o botão Gerar meu campeonato para prosseguir. </h5>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-3">
+                        Selecionados:
+                        <h3 id="divFiltros">  </h3>
+                    </div>
+                    <div class="col-md-3">
+                        @*<button type="button" class="btn btn-primary">Gerar meu campeonato</button>*@
+                    </div>
+                    <div class="col-md-3">
+                        @*<button type="button" class="btn btn-primary">Gerar meu campeonato</button>*@
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary" id="btnGerar">Gerar meu campeonato</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        @foreach (var item in Model.Take(16))
+                        {
+
+                            <div class="card" style="width: 20rem;">
+                                <ul class="list-group list-group-flush checkbox">
+                                    <li class="list-group-item"><input type="checkbox" id=@Html.DisplayFor(modelItem => item.Id) value=@Html.DisplayFor(modelItem => item.PrimaryTitle) /><label for="filme">@Html.DisplayFor(modelItem => item.PrimaryTitle)</label></li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-3">
+                        @foreach (var item in Model.Skip(16).Take(16))
+                        {
+
+                            <div class="card" style="width: 20rem;">
+                                <ul class="list-group list-group-flush checkbox">
+                                    <li class="list-group-item"><input type="checkbox" id=@Html.DisplayFor(modelItem => item.Id) value=@Html.DisplayFor(modelItem => item.PrimaryTitle) /><label for="filme">@Html.DisplayFor(modelItem => item.PrimaryTitle)</label></li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-3">
+                        @foreach (var item in Model.Skip(32).Take(16))
+                        {
+
+                            <div class="card" style="width: 20rem;">
+                                <ul class="list-group list-group-flush checkbox">
+                                    <li class="list-group-item"><input type="checkbox" id=@Html.DisplayFor(modelItem => item.Id) value=@Html.DisplayFor(modelItem => item.PrimaryTitle) /><label for="filme">@Html.DisplayFor(modelItem => item.PrimaryTitle)</label></li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-3">
+                        @foreach (var item in Model.Skip(48).Take(16))
+                        {
+
+                            <div class="card" style="width: 20rem;">
+                                <ul class="list-group list-group-flush checkbox">
+                                    <li class="list-group-item"><input type="checkbox" id=@Html.DisplayFor(modelItem => item.Id) value=@Html.DisplayFor(modelItem => item.PrimaryTitle) /><label for="filme">@Html.DisplayFor(modelItem => item.PrimaryTitle)</label></li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <br />
+                <br />
+
+                <hr>
+
+            </div> <!-- /container -->
+        </div>
+    </main>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/css/content.css">
+</body>
+<loom-container id="lo-engage-ext-container"><loom-shadow data-reactroot="" classname="resolved"></loom-shadow></loom-container>
+</html>
+<script src="~/Scripts/filmeJs.js"></script>
